@@ -37,7 +37,10 @@ with:
 ```
 
 ### Full workflow example
-TODO
+See
+[full_workflow_example.yml](https://github.com/RalfG/python-wheels-manylinux-build/blob/master/full_workflow_example.yml) for a complete example that includes linting and
+uploading to PyPI.
+
 
 ## Contributing
 Bugs, questions or suggestions? Feel free to post an issues in the
