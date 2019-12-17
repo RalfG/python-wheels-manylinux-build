@@ -15,4 +15,5 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
     /opt/python/${PY_VER}/bin/pip wheel /github/workspace/ -w /github/workspace/wheelhouse/ || { echo "Building wheels failed."; exit 1; }
 done
 
-echo "Succesfully build wheels"
+echo "Succesfully build wheels:"
+ls /github/workspace/wheelhouse
