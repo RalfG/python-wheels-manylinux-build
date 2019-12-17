@@ -13,10 +13,10 @@ inputs:
     default: 'setuptools'
 runs:
   using: 'docker'
-  image: 'docker://quay.io/pypa/manylinux1_x86_64'
+  image: 'Dockerfile'
   env:
     PLAT: 'manylinux1_x86_64'
-  entrypoint: '/io/entrypoint.sh'
+  entrypoint: '/entrypoint.sh'
   args:
     - ${{ inputs.python-versions }}
 branding:
