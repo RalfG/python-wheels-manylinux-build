@@ -10,7 +10,7 @@ inputs:
   build-requirements:
     descriptions: 'Packages required at build time, space-separated'
     required: false
-    default: 'setuptools'
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -19,6 +19,7 @@ runs:
   entrypoint: '/entrypoint.sh'
   args:
     - ${{ inputs.python-versions }}
+    - ${{ inputs.build-requirements }}
 branding:
   icon: 'package'
   color: 'green'
