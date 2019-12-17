@@ -14,17 +14,17 @@ new directory `wheelhouse` and can then be uploaded to PyPI in the next step.
 
 ### Inputs
 
-#### python-versions
-
-Required  
+#### python-versions (required)
 Python versions for which to build (PEP 425 tags), as described in the
 [manylinux image documentation](https://github.com/pypa/manylinux). This can be
 one version, or a space-separated list of items.
+
 For example: `cp36-cp36m cp37-cp37m cp38-cp38`  
 Default: `cp36-cp36m cp37-cp37m cp38-cp38`
 
-#### build-requirements
-Optional  
+Possible version tags (as of 12 December 2019): `cp27-cp27m`, `cp27-cp27mu`,
+`cp34-cp34m`, `cp35-cp35m`, `cp36-cp36m`, `cp37-cp37m`, `cp38-cp38`
+#### build-requirements (optional)
 Packages required at build time, space-separated  
 For example: `cython` or `cython==0.29.14`  
 
