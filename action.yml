@@ -22,5 +22,3 @@ runs:
 branding:
   icon: 'package'
   color: 'green'
-
-docker run --rm -e PLAT=manylinux1_x86_64 -v `pwd`:/io quay.io/pypa/manylinux1_x86_64 "/io/build-wheels.sh"
