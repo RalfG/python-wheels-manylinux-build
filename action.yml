@@ -1,0 +1,26 @@
+# action.yml
+name: 'Python wheels manylinux build'
+author: 'RalfG'
+description: 'Build manylinux wheels for a (Cython) Python package'
+inputs:
+  python-versions:
+    description: 'Python versions to target, space-separated'
+    required: true
+    default: 'cp36-cp36m cp37-cp37m cp38-cp38'
+  build-requirements:
+    descriptions: 'Packages required at build time, space-separated'
+    required: false
+    default: 'setuptools'
+runs:
+  using: 'docker'
+  image: 'docker://quay.io/pypa/manylinux1_x86_64'
+  env:
+    PLAT: 'manylinux1_x86_64'
+  entrypoint: '/io/entrypoint.sh'
+  args:
+    - ${{ inputs.python-versions }}
+branding:
+  icon: 'package'
+  color: 'green'
+
+docker run --rm -e PLAT=manylinux1_x86_64 -v `pwd`:/io quay.io/pypa/manylinux1_x86_64 "/io/build-wheels.sh"
