@@ -24,23 +24,28 @@ Default: `cp36-cp36m cp37-cp37m cp38-cp38`
 
 Possible version tags (as of 12 December 2019): `cp27-cp27m`, `cp27-cp27mu`,
 `cp34-cp34m`, `cp35-cp35m`, `cp36-cp36m`, `cp37-cp37m`, `cp38-cp38`
+
 #### build-requirements (optional)
 Packages required at build time, space-separated  
-For example: `cython` or `cython==0.29.14`  
+For example: `cython` or `cython==0.29.14`
 
+## Output
+The action will create wheels in a new `wheelhouse` directory. Be sure to upload
+only the `wheelhouse/*-manylinux1_x86_64.whl` wheels, as the initial
+`linux_x86_64` wheels are not accepted by PyPI.
 
 ### Example usage
 ```yaml
 uses: actions/python-wheels-manylinux-build@v0.1
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
+  build-requirements: 'cython numpy'
 ```
 
 ### Full workflow example
 See
-[full_workflow_example.yml](https://github.com/RalfG/python-wheels-manylinux-build/blob/master/full_workflow_example.yml) for a complete example that includes linting and
-uploading to PyPI.
-
+[full_workflow_example.yml](https://github.com/RalfG/python-wheels-manylinux-build/blob/master/full_workflow_example.yml)
+for a complete example that includes linting and uploading to PyPI.
 
 ## Contributing
 Bugs, questions or suggestions? Feel free to post an issues in the
