@@ -15,5 +15,10 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
     /opt/python/${PY_VER}/bin/pip wheel /github/workspace/ -w /github/workspace/wheelhouse/ || { echo "Building wheels failed."; exit 1; }
 done
 
+# Bundle external shared libraries into the wheels
+for whl in wheelhouse/*.whl; do
+    auditwheel repair "$whl" --plat manylinux1_x86_64 -w /io/wheelhouse/
+done
+
 echo "Succesfully build wheels:"
 ls /github/workspace/wheelhouse
