@@ -9,6 +9,7 @@ Build manylinux wheels for a (Cython) Python package.
 This action uses the [manylinux](https://github.com/pypa/manylinux) container to
 build manylinux wheels for a (Cython) Python package. The wheels are placed in a
 new directory `wheelhouse` and can then be uploaded to PyPI in the next step.
+Currently, only the `manylinux1_x86_64` container is supported.
 
 ## Usage
 
