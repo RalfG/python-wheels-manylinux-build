@@ -1,6 +1,6 @@
 # action.yml
 name: 'Python wheels manylinux build'
-author: 'RalfG'
+author: 'Ralf Gabriels'
 description: 'Build manylinux wheels for a (Cython) Python package'
 inputs:
   python-versions:
@@ -8,7 +8,7 @@ inputs:
     required: true
     default: 'cp36-cp36m cp37-cp37m cp38-cp38'
   build-requirements:
-    descriptions: 'Packages required at build time, space-separated'
+    description: 'Packages required at build time, space-separated'
     required: false
     default: ''
 runs:
