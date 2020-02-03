@@ -11,7 +11,7 @@ inputs:
     description: 'Packages required at build time, space-separated'
     required: false
     default: ''
- system-packages:
+  system-packages:
     description: 'yum packages to install, space-separated'
     required: false
     default: ''
