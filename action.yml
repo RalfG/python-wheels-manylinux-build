@@ -11,6 +11,10 @@ inputs:
     description: 'Packages required at build time, space-separated'
     required: false
     default: ''
+ system-packages:
+    description: 'yum packages to install, space-separated'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
