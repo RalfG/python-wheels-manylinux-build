@@ -7,7 +7,7 @@ BUILD_REQUIREMENTS=$2
 SYSTEM_REQUIREMENTS=$3
 
 if [ ! -z "$SYSTEM_REQUIREMENTS" ]; then
-    yum install -y ${SYSTEM_REQUIREMENTS}
+    yum install -y ${SYSTEM_REQUIREMENTS}  || { echo "Installing yum package(s) failed."; exit 1; }
 fi
 
 # Compile wheels
