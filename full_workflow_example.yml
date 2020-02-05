@@ -27,6 +27,7 @@ jobs:
       with:
         python-versions: 'cp36-cp36m cp37-cp37m cp38-cp38'
         build-requirements: 'setuptools numpy cython'
+        system-packages: 'lrzip-devel zlib-devel'
     - name: Publish wheels to PyPI
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
