@@ -4,10 +4,10 @@
 # CLI arguments
 PY_VERSIONS=$1
 BUILD_REQUIREMENTS=$2
-SYSTEM_REQUIREMENTS=$3
+SYSTEM_PACKAGES=$3
 
-if [ ! -z "$SYSTEM_REQUIREMENTS" ]; then
-    yum install -y ${SYSTEM_REQUIREMENTS}  || { echo "Installing yum package(s) failed."; exit 1; }
+if [ ! -z "$SYSTEM_PACKAGES" ]; then
+    yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }
 fi
 
 # Compile wheels
