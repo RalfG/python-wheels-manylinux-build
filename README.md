@@ -41,7 +41,7 @@ only the `wheelhouse/*-manylinux1_x86_64.whl` wheels, as the initial
 
 ### Example usage
 ```yaml
-uses: actions/python-wheels-manylinux-build@v0.1
+uses: RalfG/python-wheels-manylinux-build@v0.1
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
   build-requirements: 'cython numpy'
