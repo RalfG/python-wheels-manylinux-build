@@ -4,6 +4,11 @@
 # CLI arguments
 PY_VERSIONS=$1
 BUILD_REQUIREMENTS=$2
+SYSTEM_PACKAGES=$3
+
+if [ ! -z "$SYSTEM_PACKAGES" ]; then
+    yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }
+fi
 
 # Compile wheels
 arrPY_VERSIONS=(${PY_VERSIONS// / })
@@ -12,7 +17,7 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
     /opt/python/${PY_VER}/bin/pip install --upgrade pip
 
     # Check if requirements were passed
-    if [ ! -z "$2" ]; then
+    if [ ! -z "$BUILD_REQUIREMENTS" ]; then
         /opt/python/${PY_VER}/bin/pip install ${BUILD_REQUIREMENTS} || { echo "Installing requirements failed."; exit 1; }
     fi
     

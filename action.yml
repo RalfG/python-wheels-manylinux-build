@@ -8,7 +8,11 @@ inputs:
     required: true
     default: 'cp36-cp36m cp37-cp37m cp38-cp38'
   build-requirements:
-    description: 'Packages required at build time, space-separated'
+    description: 'pip packages required at build time, space-separated'
+    required: false
+    default: ''
+  system-packages:
+    description: 'yum packages to install, space-separated'
     required: false
     default: ''
 runs:
@@ -20,6 +24,7 @@ runs:
   args:
     - ${{ inputs.python-versions }}
     - ${{ inputs.build-requirements }}
+    - ${{ inputs.system-packages }}
 branding:
   icon: 'package'
   color: 'green'

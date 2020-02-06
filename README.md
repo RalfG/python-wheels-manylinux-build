@@ -30,6 +30,10 @@ Possible version tags (as of 12 December 2019): `cp27-cp27m`, `cp27-cp27mu`,
 Packages required at build time, space-separated  
 For example: `cython` or `cython==0.29.14`
 
+#### system-packages (optional)
+System (yum) packages required at build time, space-separated
+For example: `lrzip-devel zlib-devel`
+
 ## Output
 The action will create wheels in a new `wheelhouse` directory. Be sure to upload
 only the `wheelhouse/*-manylinux1_x86_64.whl` wheels, as the initial
@@ -41,6 +45,7 @@ uses: actions/python-wheels-manylinux-build@v0.1
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
   build-requirements: 'cython numpy'
+  system-packages: 'lrzip-devel zlib-devel'
 ```
 
 ### Full workflow example
