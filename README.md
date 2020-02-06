@@ -27,11 +27,11 @@ Possible version tags (as of 12 December 2019): `cp27-cp27m`, `cp27-cp27mu`,
 `cp34-cp34m`, `cp35-cp35m`, `cp36-cp36m`, `cp37-cp37m`, `cp38-cp38`
 
 #### build-requirements (optional)
-Packages required at build time, space-separated  
+Python (pip) packages required at build time, space-separated  
 For example: `cython` or `cython==0.29.14`
 
 #### system-packages (optional)
-System (yum) packages required at build time, space-separated
+System (yum) packages required at build time, space-separated  
 For example: `lrzip-devel zlib-devel`
 
 ## Output
