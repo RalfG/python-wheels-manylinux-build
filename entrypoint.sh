@@ -14,7 +14,7 @@ fi
 arrPY_VERSIONS=(${PY_VERSIONS// / })
 for PY_VER in "${arrPY_VERSIONS[@]}"; do
     # Update pip
-    /opt/python/${PY_VER}/bin/pip install --upgrade pip
+    /opt/python/${PY_VER}/bin/pip install --upgrade --no-cache-dir pip
 
     # Check if requirements were passed
     if [ ! -z "$BUILD_REQUIREMENTS" ]; then
