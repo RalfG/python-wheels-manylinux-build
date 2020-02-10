@@ -33,4 +33,4 @@ jobs:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        twine upload wheelhouse/*-manylinux1_x86_64.whl
+        twine upload wheelhouse/*-manylinux*.whl
