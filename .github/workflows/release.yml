@@ -1,0 +1,21 @@
+name: release
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  add_tags:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Python environment
+      uses: actions/setup-python@v1.1.1
+      with:
+        python-version: 3.8
+    - name: Get tag
+      uses: olegtarasov/get-tag@v1
+      id: tagName
+    - name: Create new tags
+      run: python .github/workflows/create_tags.py {{ steps.tagName.outputs.tag }}
