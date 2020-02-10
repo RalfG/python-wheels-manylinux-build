@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -e -x
+set -e -x
 
 # CLI arguments
 PY_VERSIONS=$1
@@ -27,7 +27,7 @@ done
 
 # Bundle external shared libraries into the wheels
 for whl in /github/workspace/wheelhouse/*.whl; do
-    auditwheel repair "$whl" --plat manylinux1_x86_64 -w /github/workspace/wheelhouse/
+    auditwheel repair "$whl" --plat ${PLAT} -w /github/workspace/wheelhouse/
 done
 
 echo "Succesfully build wheels:"
