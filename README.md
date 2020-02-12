@@ -6,10 +6,10 @@
 
 Build manylinux wheels for a (Cython) Python package.
 
-This action uses the [manylinux](https://github.com/pypa/manylinux) container to
+This action uses the [manylinux](https://github.com/pypa/manylinux) containers to
 build manylinux wheels for a (Cython) Python package. The wheels are placed in a
-new directory `wheelhouse` and can then be uploaded to PyPI in the next step.
-Currently, only the `manylinux1_x86_64` container is supported.
+new directory `wheelhouse` and can then be uploaded to PyPI in the next step of your
+workflow.
 
 ## Usage
 
@@ -23,7 +23,7 @@ one version, or a space-separated list of items.
 For example: `cp36-cp36m cp37-cp37m cp38-cp38`  
 Default: `cp36-cp36m cp37-cp37m cp38-cp38`
 
-Possible version tags (as of 12 December 2019): `cp27-cp27m`, `cp27-cp27mu`,
+Possible version tags (as of the 12th of December 2019): `cp27-cp27m`, `cp27-cp27mu`,
 `cp34-cp34m`, `cp35-cp35m`, `cp36-cp36m`, `cp37-cp37m`, `cp38-cp38`
 
 #### build-requirements (optional)
@@ -34,26 +34,46 @@ For example: `cython` or `cython==0.29.14`
 System (yum) packages required at build time, space-separated  
 For example: `lrzip-devel zlib-devel`
 
-## Output
+#### package-path (optional)
+Path to python package to build (e.g. where `setup.py` file is located), relative to
+repository root  
+For example: `my_project`
+
+### Output
 The action will create wheels in a new `wheelhouse` directory. Be sure to upload
-only the `wheelhouse/*-manylinux1_x86_64.whl` wheels, as the initial
-`linux_x86_64` wheels are not accepted by PyPI.
+only the `wheelhouse/*-manylinux*.whl` wheels, as the non-audited (e.g. `linux_x86_64`)
+wheels are not accepted by PyPI.
+
+### Using a different manylinux container
+The `manylinux2010_x86_64` container is used by default. To use another manylinux
+container, append `-<container-name>` to the reference. For example:
+`@v0.2-manylinux2014_aarch64` instead of `@v0.2`.
 
 ### Example usage
+Minimal:
+
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.1
+uses: RalfG/python-wheels-manylinux-build@v0.2
+with:
+  python-versions: 'cp36-cp36m cp37-cp37m'
+```
+
+Using all arguments:
+
+```yaml
+uses: RalfG/python-wheels-manylinux-build@v0.2-manylinux2010_x86_64
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
   build-requirements: 'cython numpy'
   system-packages: 'lrzip-devel zlib-devel'
+  package-path: 'my_project'
 ```
 
-### Full workflow example
 See
 [full_workflow_example.yml](https://github.com/RalfG/python-wheels-manylinux-build/blob/master/full_workflow_example.yml)
 for a complete example that includes linting and uploading to PyPI.
 
 ## Contributing
-Bugs, questions or suggestions? Feel free to post an issues in the
+Bugs, questions or suggestions? Feel free to post an issue in the
 [issue tracker](https://github.com/RalfG/python-wheels-manylinux-build/issues)
 or to make a pull request!
