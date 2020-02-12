@@ -5,6 +5,7 @@ set -e -x
 PY_VERSIONS=$1
 BUILD_REQUIREMENTS=$2
 SYSTEM_PACKAGES=$3
+PACKAGE_PATH=$4
 
 if [ ! -z "$SYSTEM_PACKAGES" ]; then
     yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }
@@ -22,7 +23,7 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
     fi
     
     # Build wheels
-    /opt/python/${PY_VER}/bin/pip wheel /github/workspace/ -w /github/workspace/wheelhouse/ || { echo "Building wheels failed."; exit 1; }
+    /opt/python/${PY_VER}/bin/pip wheel /github/workspace/${PACKAGE_PATH} -w /github/workspace/wheelhouse/ || { echo "Building wheels failed."; exit 1; }
 done
 
 # Bundle external shared libraries into the wheels

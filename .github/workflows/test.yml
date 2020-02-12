@@ -1,0 +1,32 @@
+name: test
+
+on:
+  push:
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout action
+      uses: actions/checkout@v2
+      with:
+        path: test_action
+    - name: Checkout hello_py dummy project
+      uses: actions/checkout@v2
+      with:
+        repository: ralfg/hello_py
+        ref: v0.1.0
+        path: hello_py
+    - name: Build manylinux Python wheels
+      uses: './test_action'
+      with:
+        python-versions: 'cp38-cp38'
+        build-requirements: 'setuptools numpy cython'
+        system-packages: 'lrzip-devel zlib-devel'
+        package-path: 'hello_py'
+    - name: Setup Python environment
+      uses: actions/setup-python@v1.1.1
+    - name: Install wheel
+      run: 'pip install wheelhouse/hello_py*-manylinux*.whl'
+    - name: Test wheel
+      run: 'hello_py'
