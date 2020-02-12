@@ -45,7 +45,7 @@ only the `wheelhouse/*-manylinux*.whl` wheels, as the non-audited (e.g. `linux_x
 wheels are not accepted by PyPI.
 
 ### Using a different manylinux container
-By default, the `manylinux2010_x86_64` container is used. To use another manylinux
+The `manylinux2010_x86_64` container is used by default. To use another manylinux
 container, append `-<container-name>` to the reference. For example:
 `@v0.2-manylinux2014_aarch64` instead of `@v0.2`.
 
