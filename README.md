@@ -3,6 +3,8 @@
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/RalfG/python-wheels-manylinux-build?include_prereleases&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/ralfg/manylinux-github-action?style=flat-square)
 [![GitHub issues](https://img.shields.io/github/issues/RalfG/manylinux-github-action?style=flat-square)](https://github.com/RalfG/manylinux-github-action/issues)
+![GitHub stars](https://img.shields.io/github/stars/RalfG/python-wheels-manylinux-build?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/RalfG/python-wheels-manylinux-build?style=flat-square)
 
 Build manylinux wheels for a (Cython) Python package.
 
