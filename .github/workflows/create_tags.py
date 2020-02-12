@@ -6,11 +6,17 @@ def main():
     version = sys.argv[1]
     branch = "rel_" + version
     containers = [
-        "manylinux1_x86_64",
         "manylinux2010_x86_64",
+        "manylinux1_x86_64",
+        "manylinux1_i686",
+        "manylinux2010_i686",
         "manylinux2014_x86_64",
+        "manylinux2014_i686",
+        "manylinux2014_aarch64",
+        "manylinux2014_ppc64le",
+        "manylinux2014_s390x",
     ]
-    files_to_edit = ["./action.yml", "./Dockerfile"]
+    files_to_edit = ["./Dockerfile"]
 
     # Setup Git
     subprocess.call(["git", "config", "--global", "user.email", '"ralfg@hotmail.be"'])
