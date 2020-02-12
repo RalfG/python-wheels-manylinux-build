@@ -19,7 +19,7 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
 
     # Check if requirements were passed
     if [ ! -z "$BUILD_REQUIREMENTS" ]; then
-        /opt/python/${PY_VER}/bin/pip install ${BUILD_REQUIREMENTS} || { echo "Installing requirements failed."; exit 1; }
+        /opt/python/${PY_VER}/bin/pip install --no-cache-dir ${BUILD_REQUIREMENTS} || { echo "Installing requirements failed."; exit 1; }
     fi
     
     # Build wheels
