@@ -23,7 +23,7 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
     fi
     
     # Build wheels
-    /opt/python/${PY_VER}/bin/pip wheel /github/workspace/${PACKAGE_PATH} -w /github/workspace/wheelhouse/ || { echo "Building wheels failed."; exit 1; }
+    /opt/python/${PY_VER}/bin/pip wheel /github/workspace/${PACKAGE_PATH} -w /github/workspace/wheelhouse/ || { echo "Building wheels failed."; auditwheel show "$whl"; exit 1; }
 done
 
 # Bundle external shared libraries into the wheels
