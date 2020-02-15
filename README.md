@@ -47,13 +47,13 @@ wheels are not accepted by PyPI.
 ### Using a different manylinux container
 The `manylinux2010_x86_64` container is used by default. To use another manylinux
 container, append `-<container-name>` to the reference. For example:
-`@v0.2-manylinux2014_aarch64` instead of `@v0.2`.
+`@v0.2.1-manylinux2014_aarch64` instead of `@v0.2.1`.
 
 ### Example usage
 Minimal:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.2
+uses: RalfG/python-wheels-manylinux-build@v0.2.1
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
 ```
@@ -61,7 +61,7 @@ with:
 Using all arguments:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.2-manylinux2010_x86_64
+uses: RalfG/python-wheels-manylinux-build@v0.2.1-manylinux2010_x86_64
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
   build-requirements: 'cython numpy'
