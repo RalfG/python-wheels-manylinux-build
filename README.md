@@ -10,48 +10,12 @@ Build manylinux wheels for a (Cython) Python package.
 
 This action uses the [manylinux](https://github.com/pypa/manylinux) containers to
 build manylinux wheels for a (Cython) Python package. The wheels are placed in a
-new directory `wheelhouse` and can then be uploaded to PyPI in the next step of your
+new directory `wheelhouse` and can be uploaded to PyPI in the next step of your
 workflow.
 
 ## Usage
 
-### Inputs
-
-#### python-versions (required)
-Python versions for which to build (PEP 425 tags), as described in the
-[manylinux image documentation](https://github.com/pypa/manylinux). This can be
-one version, or a space-separated list of items.
-
-For example: `cp36-cp36m cp37-cp37m cp38-cp38`  
-Default: `cp36-cp36m cp37-cp37m cp38-cp38`
-
-Possible version tags (as of the 12th of December 2019): `cp27-cp27m`, `cp27-cp27mu`,
-`cp34-cp34m`, `cp35-cp35m`, `cp36-cp36m`, `cp37-cp37m`, `cp38-cp38`
-
-#### build-requirements (optional)
-Python (pip) packages required at build time, space-separated  
-For example: `cython` or `cython==0.29.14`
-
-#### system-packages (optional)
-System (yum) packages required at build time, space-separated  
-For example: `lrzip-devel zlib-devel`
-
-#### package-path (optional)
-Path to python package to build (e.g. where `setup.py` file is located), relative to
-repository root  
-For example: `my_project`
-
-### Output
-The action will create wheels in a new `wheelhouse` directory. Be sure to upload
-only the `wheelhouse/*-manylinux*.whl` wheels, as the non-audited (e.g. `linux_x86_64`)
-wheels are not accepted by PyPI.
-
-### Using a different manylinux container
-The `manylinux2010_x86_64` container is used by default. To use another manylinux
-container, append `-<container-name>` to the reference. For example:
-`@v0.2.1-manylinux2014_aarch64` instead of `@v0.2.1`.
-
-### Example usage
+### Example
 Minimal:
 
 ```yaml
@@ -69,11 +33,34 @@ with:
   build-requirements: 'cython numpy'
   system-packages: 'lrzip-devel zlib-devel'
   package-path: 'my_project'
+  pip-wheel-args: '--no-deps'
 ```
 
 See
 [full_workflow_example.yml](https://github.com/RalfG/python-wheels-manylinux-build/blob/master/full_workflow_example.yml)
 for a complete example that includes linting and uploading to PyPI.
+
+
+### Inputs
+
+| name | description | required | default | example(s) |
+| - | - | - | - | - |
+| `python-versions` | Python version tags for which to build (PEP 425 tags) wheels, as described in the [manylinux image documentation](https://github.com/pypa/manylinux), space-separated | required | `'cp36-cp36m cp37-cp37m cp38-cp38'` | `'cp36-cp36m cp37-cp37m'` |
+| `build-requirements` | Python (pip) packages required at build time, space-separated | optional | `''` | `'cython'` or `'cython==0.29.14'` |
+| `system-packages` | System (yum) packages required at build time, space-separated | optional | `''` | `'lrzip-devel zlib-devel'` |
+| `package-path` | Path to python package to build (e.g. where `setup.py` file is located), relative to repository root | optional | `''` | `'my_project'` |
+| `pip-wheel-args` | Extra extra arguments to pass to the `pip wheel` command (see [pip documentation](https://pip.pypa.io/en/stable/reference/pip_wheel/)) | optional | `'--no-deps'` | `'--no-deps --pre'` |
+
+### Output
+The action creates wheels in a new `wheelhouse` directory. Be sure to upload
+only the `wheelhouse/*-manylinux*.whl` wheels, as the non-audited (e.g. `linux_x86_64`)
+wheels are not accepted by PyPI.
+
+### Using a different manylinux container
+The `manylinux2010_x86_64` container is used by default. To use another manylinux
+container, append `-<container-name>` to the reference. For example:
+`RalfG/python-wheels-manylinux-build@v0.2.1-manylinux2014_aarch64` instead of
+`RalfG/python-wheels-manylinux-build@v0.2.1`.
 
 ## Contributing
 Bugs, questions or suggestions? Feel free to post an issue in the
