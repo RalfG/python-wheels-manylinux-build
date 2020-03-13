@@ -15,6 +15,10 @@ inputs:
     description: 'yum packages to install, space-separated'
     required: false
     default: ''
+  install-extra-requirements:
+    description: 'path, relative to the repository root, to a script to run to perform additional build-environment setup'
+    required: false
+    default: ''
   package-path:
     description: 'path to python package to build, relative to repository root'
     required: false
@@ -31,6 +35,7 @@ runs:
     - ${{ inputs.build-requirements }}
     - ${{ inputs.system-packages }}
     - ${{ inputs.package-path }}
+    - ${{ inputs.install-extra-requirements }}
     - ${{ inputs.pip-wheel-args}}
 branding:
   icon: 'package'
