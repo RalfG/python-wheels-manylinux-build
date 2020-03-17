@@ -35,7 +35,7 @@ runs:
     - ${{ inputs.build-requirements }}
     - ${{ inputs.system-packages }}
     - ${{ inputs.package-path }}
-    - ${{ inputs.install-extra-requirements }}
+    - ${{ inputs.pre-build-script }}
     - ${{ inputs.pip-wheel-args}}
 branding:
   icon: 'package'
