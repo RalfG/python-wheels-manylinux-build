@@ -15,7 +15,7 @@ inputs:
     description: 'yum packages to install, space-separated'
     required: false
     default: ''
-  install-extra-requirements:
+  pre-build-script:
     description: 'path, relative to the repository root, to a script to run to perform additional build-environment setup'
     required: false
     default: ''
