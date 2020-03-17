@@ -13,7 +13,7 @@ if [ ! -z "$SYSTEM_PACKAGES" ]; then
     yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }
 fi
 
-if [ ! -z "$INSTALL_EXTRA_REQUIREMENTS" ]; then
+if [ ! -z "$PRE_BUILD_SCRIPT" ]; then
     "$INSTALL_EXTRA_REQUIREMENTS"
 fi
 
