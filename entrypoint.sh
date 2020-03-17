@@ -14,7 +14,7 @@ if [ ! -z "$SYSTEM_PACKAGES" ]; then
 fi
 
 if [ ! -z "$PRE_BUILD_SCRIPT" ]; then
-    "$INSTALL_EXTRA_REQUIREMENTS"
+    "$PRE_BUILD_SCRIPT" || { echo "Pre-build script failed."; exit 1; }
 fi
 
 # Compile wheels
