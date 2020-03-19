@@ -1,10 +1,11 @@
 # Python wheels manylinux build - GitHub Action
 
-![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/RalfG/python-wheels-manylinux-build?include_prereleases&style=flat-square)
-![GitHub](https://img.shields.io/github/license/ralfg/manylinux-github-action?style=flat-square)
-[![GitHub issues](https://img.shields.io/github/issues/RalfG/manylinux-github-action?style=flat-square)](https://github.com/RalfG/manylinux-github-action/issues)
-![GitHub stars](https://img.shields.io/github/stars/RalfG/python-wheels-manylinux-build?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/RalfG/python-wheels-manylinux-build?style=flat-square)
+![GitHub release](https://flat.badgen.net/github/release/RalfG/python-wheels-manylinux-build)
+![License](https://flat.badgen.net/github/license/RalfG/python-wheels-manylinux-build)
+![Open issues](https://flat.badgen.net/github/open-issues/RalfG/python-wheels-manylinux-build)
+![Merged PRs](https://flat.badgen.net/github/merged-prs/RalfG/python-wheels-manylinux-build)
+![GitHub Stars](https://flat.badgen.net/github/stars/RalfG/python-wheels-manylinux-build)
+![GitHub Forks](https://flat.badgen.net/github/forks/RalfG/python-wheels-manylinux-build)
 
 Build manylinux wheels for a (Cython) Python package.
 
