@@ -29,6 +29,7 @@ jobs:
         build-requirements: 'cython numpy'
         system-packages: 'lrzip-devel zlib-devel'
         package-path: ''
+        pre-build-command: ''
         pip-wheel-args: '--no-deps'
     - name: Publish wheels to PyPI
       env:

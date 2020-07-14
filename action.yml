@@ -15,8 +15,8 @@ inputs:
     description: 'yum packages to install, space-separated'
     required: false
     default: ''
-  pre-build-script:
-    description: 'path, relative to the repository root, to a script to run to perform additional build-environment setup'
+  pre-build-command:
+    description: 'command to run before build, e.g. the execution of a script to perform additional build-environment setup'
     required: false
     default: ''
   package-path:
@@ -34,8 +34,8 @@ runs:
     - ${{ inputs.python-versions }}
     - ${{ inputs.build-requirements }}
     - ${{ inputs.system-packages }}
-    - ${{ inputs.package-path }}
     - ${{ inputs.pre-build-script }}
+    - ${{ inputs.package-path }}
     - ${{ inputs.pip-wheel-args}}
 branding:
   icon: 'package'

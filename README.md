@@ -33,6 +33,7 @@ with:
   python-versions: 'cp36-cp36m cp37-cp37m'
   build-requirements: 'cython numpy'
   system-packages: 'lrzip-devel zlib-devel'
+  pre-build-command: 'sh pre-build-script.sh'
   package-path: 'my_project'
   pip-wheel-args: '--no-deps'
 ```
@@ -49,6 +50,7 @@ for a complete example that includes linting and uploading to PyPI.
 | `python-versions` | Python version tags for which to build (PEP 425 tags) wheels, as described in the [manylinux image documentation](https://github.com/pypa/manylinux), space-separated | required | `'cp36-cp36m cp37-cp37m cp38-cp38'` | `'cp36-cp36m cp37-cp37m'` |
 | `build-requirements` | Python (pip) packages required at build time, space-separated | optional | `''` | `'cython'` or `'cython==0.29.14'` |
 | `system-packages` | System (yum) packages required at build time, space-separated | optional | `''` | `'lrzip-devel zlib-devel'` |
+| `pre-build-command` | command to run before build, e.g. the execution of a script to perform additional build-environment setup | optional | `''` | `'sh pre-build-script.sh'` |
 | `package-path` | Path to python package to build (e.g. where `setup.py` file is located), relative to repository root | optional | `''` | `'my_project'` |
 | `pip-wheel-args` | Extra extra arguments to pass to the `pip wheel` command (see [pip documentation](https://pip.pypa.io/en/stable/reference/pip_wheel/)) | optional | `'--no-deps'` | `'--no-deps --pre'` |
 
