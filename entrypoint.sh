@@ -6,10 +6,15 @@ PY_VERSIONS=$1
 BUILD_REQUIREMENTS=$2
 SYSTEM_PACKAGES=$3
 PACKAGE_PATH=$4
-PIP_WHEEL_ARGS=$5
+PRE_BUILD_SCRIPT=$5
+PIP_WHEEL_ARGS=$6
 
 if [ ! -z "$SYSTEM_PACKAGES" ]; then
     yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }
+fi
+
+if [ ! -z "$PRE_BUILD_SCRIPT" ]; then
+    "$PRE_BUILD_SCRIPT" || { echo "Pre-build script failed."; exit 1; }
 fi
 
 # Compile wheels
