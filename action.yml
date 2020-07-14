@@ -34,7 +34,7 @@ runs:
     - ${{ inputs.python-versions }}
     - ${{ inputs.build-requirements }}
     - ${{ inputs.system-packages }}
-    - ${{ inputs.pre-build-script }}
+    - ${{ inputs.pre-build-command }}
     - ${{ inputs.package-path }}
     - ${{ inputs.pip-wheel-args}}
 branding:
