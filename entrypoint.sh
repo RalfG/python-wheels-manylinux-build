@@ -35,7 +35,7 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
 done
 
 # Bundle external shared libraries into the wheels
-find . -type f -iname "*-linux*.whl" -execdir sh -c "auditwheel repair '{}' --plat '${PLAT}' || { echo 'Repairing wheels failed.'; auditwheel show '{}'; exit 1; }" \;
+find . -type f -iname "*-linux*.whl" -execdir sh -c "auditwheel repair '{}' -w ./ --plat '${PLAT}' || { echo 'Repairing wheels failed.'; auditwheel show '{}'; exit 1; }" \;
 
 echo "Succesfully build wheels:"
 find . -type f -iname "*-manylinux*.whl"
