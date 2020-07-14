@@ -24,9 +24,9 @@ inputs:
     required: false
     default: ''
   pip-wheel-args:
-    description: 'extra arguments to pass to the `pip wheel` command'
+    description: 'extra arguments to pass to the `pip wheel` command, passed paths are relative to `package-path`'
     required: false
-    default: '--no-deps'
+    default: '-w ./dist --no-deps'
 runs:
   using: 'docker'
   image: 'Dockerfile'
