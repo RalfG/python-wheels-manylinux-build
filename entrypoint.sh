@@ -9,6 +9,8 @@ PRE_BUILD_COMMAND=$4
 PACKAGE_PATH=$5
 PIP_WHEEL_ARGS=$6
 
+cd /github/workspace/"${PACKAGE_PATH}"
+
 if [ ! -z "$SYSTEM_PACKAGES" ]; then
     yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }
 fi
@@ -29,13 +31,11 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
     fi
 
     # Build wheels
-    /opt/python/"${PY_VER}"/bin/pip wheel /github/workspace/"${PACKAGE_PATH}" -w /github/workspace/wheelhouse/ ${PIP_WHEEL_ARGS} || { echo "Building wheels failed."; exit 1; }
+    /opt/python/"${PY_VER}"/bin/pip wheel . ${PIP_WHEEL_ARGS} || { echo "Building wheels failed."; exit 1; }
 done
 
 # Bundle external shared libraries into the wheels
-for whl in /github/workspace/wheelhouse/*-linux*.whl; do
-    auditwheel repair "$whl" --plat "${PLAT}" -w /github/workspace/wheelhouse/ || { echo "Repairing wheels failed."; auditwheel show "$whl"; exit 1; }
-done
+find . -type f -iname "*-linux*.whl" -execdir sh -c "auditwheel repair '{}' -w ./ --plat '${PLAT}' || { echo 'Repairing wheels failed.'; auditwheel show '{}'; exit 1; }" \;
 
 echo "Succesfully build wheels:"
-ls /github/workspace/wheelhouse
+find . -type f -iname "*-manylinux*.whl"

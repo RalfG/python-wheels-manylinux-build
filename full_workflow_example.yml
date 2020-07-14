@@ -27,13 +27,9 @@ jobs:
       with:
         python-versions: 'cp36-cp36m cp37-cp37m'
         build-requirements: 'cython numpy'
-        system-packages: 'lrzip-devel zlib-devel'
-        package-path: ''
-        pre-build-command: ''
-        pip-wheel-args: '--no-deps'
     - name: Publish wheels to PyPI
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        twine upload wheelhouse/*-manylinux*.whl
+        twine upload dist/*-manylinux*.whl

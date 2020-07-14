@@ -27,6 +27,6 @@ jobs:
     - name: Setup Python environment
       uses: actions/setup-python@v1.1.1
     - name: Install wheel
-      run: 'pip install wheelhouse/hello_py*-manylinux*.whl'
+      run: 'pip install hello_py/dist/hello_py*-manylinux*.whl'
     - name: Test wheel
       run: 'hello_py'
