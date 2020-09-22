@@ -11,7 +11,7 @@ Build manylinux wheels for a (Cython) Python package.
 
 This action uses the [manylinux](https://github.com/pypa/manylinux) containers to
 build manylinux wheels for a (Cython) Python package. The wheels are placed in a
-new directory `wheelhouse` and can be uploaded to PyPI in the next step of your
+new directory `<package-path>/dist` and can be uploaded to PyPI in the next step of your
 workflow.
 
 ## Usage
