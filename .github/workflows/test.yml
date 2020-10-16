@@ -37,7 +37,7 @@ jobs:
     - name: Setup Python environment
       uses: actions/setup-python@v1.1.1
       with:
-        python-version: ${{ python-version }}
+        python-version: ${{ matrix.python-version }}
 
     - name: Install wheel
       run: 'pip install hello_py/dist/hello_py*-manylinux*.whl'
