@@ -23,7 +23,7 @@ jobs:
     - name: Build manylinux Python wheels
       uses: './test_action'
       with:
-        python-versions: ${{ matrix.os }}
+        python-versions: ${{ matrix.python }}
         build-requirements: 'setuptools numpy cython'
         system-packages: 'lrzip-devel zlib-devel'
         pre-build-command: 'echo Hello world! Testing pre-build command'
