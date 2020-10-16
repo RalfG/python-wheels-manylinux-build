@@ -4,6 +4,10 @@ on: [push, pull_request]
 
 jobs:
   test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['cp36-cp36m', 'cp37-cp37m', 'cp38-cp38']
     runs-on: ubuntu-latest
     steps:
     - name: Checkout action
@@ -19,7 +23,7 @@ jobs:
     - name: Build manylinux Python wheels
       uses: './test_action'
       with:
-        python-versions: 'cp38-cp38'
+        python-versions: ${{ matrix.os }}
         build-requirements: 'setuptools numpy cython'
         system-packages: 'lrzip-devel zlib-devel'
         pre-build-command: 'echo Hello world! Testing pre-build command'
