@@ -16,36 +16,10 @@ jobs:
         repository: ralfg/hello_py
         ref: v0.1.0
         path: hello_py
-    - name: Build manylinux Python wheels
-      uses: './test_action'
-      with:
-        python-versions: 'cp38-cp38'
-        build-requirements: 'setuptools numpy cython'
-        system-packages: 'lrzip-devel zlib-devel'
-        pre-build-command: 'echo Hello world! Testing pre-build command'
-        package-path: 'hello_py'
     - name: Setup Python environment
       uses: actions/setup-python@v2
-    - name: Install wheel
-      run: 'pip install hello_py/dist/hello_py*-manylinux*.whl'
-    - name: Test wheel
-      run: 'hello_py'
-
-  test-with-setup-python:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout action
-      uses: actions/checkout@v2
       with:
-        path: test_action
-    - name: Setup Python environment
-      uses: actions/setup-python@v2
-    - name: Checkout hello_py dummy project
-      uses: actions/checkout@v2
-      with:
-        repository: ralfg/hello_py
-        ref: v0.1.0
-        path: hello_py
+        python-version: 3.8
     - name: Build manylinux Python wheels
       uses: './test_action'
       with:
