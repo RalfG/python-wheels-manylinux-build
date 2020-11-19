@@ -4,6 +4,18 @@ on: [push, pull_request]
 
 jobs:
   test:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python-version: 3.6
+            pep-425-tag: 'cp36-cp36m'
+          - python-version: 3.7
+            pep-425-tag: 'cp37-cp37m'
+          - python-version: 3.8
+            pep-425-tag: 'cp38-cp38'
+          - python-version: 3.9
+            pep-425-tag: 'cp39-cp39'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout action
@@ -19,11 +31,11 @@ jobs:
     - name: Setup Python environment
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: ${{ matrix.python-version }}
     - name: Build manylinux Python wheels
       uses: './test_action'
       with:
-        python-versions: 'cp38-cp38'
+        python-versions: ${{ matrix.pep-425-tag }}
         build-requirements: 'setuptools numpy cython'
         system-packages: 'lrzip-devel zlib-devel'
         pre-build-command: 'echo Hello world! Testing pre-build command'
