@@ -9,6 +9,10 @@ PRE_BUILD_COMMAND=$4
 PACKAGE_PATH=$5
 PIP_WHEEL_ARGS=$6
 
+# Temporary workaround for LD_LIBRARY_PATH issue. See
+# https://github.com/RalfG/python-wheels-manylinux-build/issues/26
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+
 cd /github/workspace/"${PACKAGE_PATH}"
 
 if [ ! -z "$SYSTEM_PACKAGES" ]; then
