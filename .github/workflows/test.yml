@@ -14,6 +14,8 @@ jobs:
             pep-425-tag: 'cp37-cp37m'
           - python-version: 3.8
             pep-425-tag: 'cp38-cp38'
+          - python-version: 3.9
+            pep-425-tag: 'cp39-cp39'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout action
@@ -38,8 +40,7 @@ jobs:
       uses: actions/setup-python@v1.1.1
       with:
         python-version: ${{ matrix.python-version }}
-
     - name: Install wheel
-      run: 'pip install hello_py/dist/hello_py*-manylinux*.whl'
+      run: 'pip install hello_py/dist/hello_py*-manylinux1_x86_64.whl'
     - name: Test wheel
       run: 'hello_py'
