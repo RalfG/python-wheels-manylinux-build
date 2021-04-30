@@ -20,7 +20,7 @@ workflow.
 Minimal:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.3.3
+uses: RalfG/python-wheels-manylinux-build@v0.3.4
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
 ```
@@ -28,7 +28,7 @@ with:
 Using all arguments:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.3.3-manylinux2010_x86_64
+uses: RalfG/python-wheels-manylinux-build@v0.3.4-manylinux2010_x86_64
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
   build-requirements: 'cython numpy'
@@ -63,8 +63,8 @@ wheels are not accepted by PyPI.
 ### Using a different manylinux container
 The `manylinux2010_x86_64` container is used by default. To use another manylinux
 container, append `-<container-name>` to the reference. For example:
-`RalfG/python-wheels-manylinux-build@v0.3.3-manylinux2014_aarch64` instead of
-`RalfG/python-wheels-manylinux-build@v0.3.3`.
+`RalfG/python-wheels-manylinux-build@v0.3.4-manylinux2014_aarch64` instead of
+`RalfG/python-wheels-manylinux-build@v0.3.4`.
 
 ## Contributing
 Bugs, questions or suggestions? Feel free to post an issue in the
