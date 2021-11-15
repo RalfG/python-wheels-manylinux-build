@@ -14,13 +14,16 @@ build manylinux wheels for a (Cython) Python package. The wheels are placed in a
 new directory `<package-path>/dist` and can be uploaded to PyPI in the next step of your
 workflow.
 
+This is a relatively simple and straightforward action. For more complicated use cases,
+check out [PyPA/cibuildwheel](https://github.com/pypa/cibuildwheel).
+
 ## Usage
 
 ### Example
 Minimal:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.3.4
+uses: RalfG/python-wheels-manylinux-build@v0.4.0
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
 ```
@@ -28,7 +31,7 @@ with:
 Using all arguments:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.3.4-manylinux2010_x86_64
+uses: RalfG/python-wheels-manylinux-build@v0.4.0-manylinux2014_x86_64
 with:
   python-versions: 'cp36-cp36m cp37-cp37m'
   build-requirements: 'cython numpy'
@@ -63,8 +66,8 @@ wheels are not accepted by PyPI.
 ### Using a different manylinux container
 The `manylinux2010_x86_64` container is used by default. To use another manylinux
 container, append `-<container-name>` to the reference. For example:
-`RalfG/python-wheels-manylinux-build@v0.3.4-manylinux2014_aarch64` instead of
-`RalfG/python-wheels-manylinux-build@v0.3.4`.
+`RalfG/python-wheels-manylinux-build@v0.4.0-manylinux2014_aarch64` instead of
+`RalfG/python-wheels-manylinux-build@v0.4.0`.
 
 ## Contributing
 Bugs, questions or suggestions? Feel free to post an issue in the
