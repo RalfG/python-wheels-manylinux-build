@@ -8,14 +8,16 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - python-version: 3.6
+          - python-version: '3.6'
             pep-425-tag: 'cp36-cp36m'
-          - python-version: 3.7
+          - python-version: '3.7'
             pep-425-tag: 'cp37-cp37m'
-          - python-version: 3.8
+          - python-version: '3.8'
             pep-425-tag: 'cp38-cp38'
-          - python-version: 3.9
+          - python-version: '3.9'
             pep-425-tag: 'cp39-cp39'
+          - python-version: '3.10'
+            pep-425-tag: 'cp310-cp310'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout action
@@ -41,6 +43,6 @@ jobs:
         pre-build-command: 'echo Hello world! Testing pre-build command'
         package-path: 'hello_py'
     - name: Install wheel
-      run: 'pip install hello_py/dist/hello_py*-manylinux2010_x86_64.whl'
+      run: 'pip install hello_py/dist/hello_py*-manylinux*.whl'
     - name: Test wheel
       run: 'hello_py'
