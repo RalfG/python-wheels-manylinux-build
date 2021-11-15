@@ -1,4 +1,4 @@
-FROM quay.io/pypa/manylinux2014_x86_64
+FROM quay.io/pypa/manylinux2014_i686
 
 ENV PLAT manylinux2010_x86_64
 
