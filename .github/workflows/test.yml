@@ -41,6 +41,6 @@ jobs:
         pre-build-command: 'echo Hello world! Testing pre-build command'
         package-path: 'hello_py'
     - name: Install wheel
-      run: 'pip install hello_py/dist/hello_py*.whl'
+      run: 'pip install hello_py/dist/hello_py*-manylinux*.whl'
     - name: Test wheel
       run: 'hello_py'
