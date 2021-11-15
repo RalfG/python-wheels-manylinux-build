@@ -1,6 +1,10 @@
 name: test
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   test:
@@ -39,7 +43,7 @@ jobs:
       with:
         python-versions: ${{ matrix.pep-425-tag }}
         build-requirements: 'setuptools numpy cython'
-        system-packages: 'lrzip-devel zlib-devel'
+        system-packages: 'gzip'
         pre-build-command: 'echo Hello world! Testing pre-build command'
         package-path: 'hello_py'
     - name: Install wheel
