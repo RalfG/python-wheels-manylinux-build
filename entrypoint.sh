@@ -20,7 +20,7 @@ if [ ! -z "$SYSTEM_PACKAGES" ]; then
 fi
 
 if [ ! -z "$PRE_BUILD_COMMAND" ]; then
-    $PRE_BUILD_COMMAND || { echo "Pre-build command failed."; exit 1; }
+    eval $PRE_BUILD_COMMAND || { echo "Pre-build command failed."; exit 1; }
 fi
 
 # Compile wheels
