@@ -1,20 +1,25 @@
-import sys
 import subprocess
+import sys
 
 
 def main():
     version = sys.argv[1]
     branch = "rel_" + version
     containers = [
-        "manylinux2010_x86_64",
-        "manylinux1_x86_64",
-        "manylinux1_i686",
-        "manylinux2010_i686",
+        "manylinux_2_24_x86_64",
+        "manylinux_2_24_i686",
+        "manylinux_2_24_aarch64",
+        "manylinux_2_24_ppc64le",
+        "manylinux_2_24_s390x",
         "manylinux2014_x86_64",
         "manylinux2014_i686",
         "manylinux2014_aarch64",
         "manylinux2014_ppc64le",
         "manylinux2014_s390x",
+        "manylinux2010_x86_64",
+        "manylinux2010_i686",
+        "manylinux1_x86_64",
+        "manylinux1_i686",
     ]
     files_to_edit = ["./Dockerfile"]
 
