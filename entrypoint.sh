@@ -13,7 +13,7 @@ PIP_WHEEL_ARGS=$6
 # https://github.com/RalfG/python-wheels-manylinux-build/issues/26
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 
-cd /github/workspace/"${PACKAGE_PATH}"
+cd "${GITHUB_WORKSPACE}"/"${PACKAGE_PATH}"
 
 if [ ! -z "$SYSTEM_PACKAGES" ]; then
     if command -v apt-get >/dev/null; then
