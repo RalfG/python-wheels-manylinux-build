@@ -17,6 +17,7 @@ cd "${GITHUB_WORKSPACE}"/"${PACKAGE_PATH}"
 
 if [ ! -z "$SYSTEM_PACKAGES" ]; then
     if command -v apt-get >/dev/null; then
+        apt-get update
         apt-get install -y ${SYSTEM_PACKAGES}  || { echo "Installing apt package(s) failed."; exit 1; }
     elif command -v yum >/dev/null; then
         yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }
