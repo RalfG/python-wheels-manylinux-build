@@ -1,4 +1,4 @@
-FROM quay.io/pypa/manylinux_2_24_s390x
+FROM quay.io/pypa/manylinux2014_x86_64
 
 ENV PLAT manylinux2010_x86_64
 
