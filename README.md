@@ -64,7 +64,7 @@ upload only the `*-manylinux*.whl` wheels, as the non-audited (e.g. `linux_x86_6
 wheels are not accepted by PyPI.
 
 ### Using a different manylinux container
-The `manylinux2010_x86_64` container is used by default. To use another manylinux
+The `manylinux_2_24_x86_64` container is used by default. To use another manylinux
 container, append `-<container-name>` to the reference. For example:
 `RalfG/python-wheels-manylinux-build@v0.4.2-manylinux2014_aarch64` instead of
 `RalfG/python-wheels-manylinux-build@v0.4.2`.
