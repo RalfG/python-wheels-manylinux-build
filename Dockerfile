@@ -1,6 +1,6 @@
-FROM quay.io/pypa/manylinux_2_28_aarch64
+FROM quay.io/pypa/manylinux_2_28_ppc64le
 
-ENV PLAT manylinux_2_28_aarch64
+ENV PLAT manylinux_2_28_ppc64le
 
 COPY entrypoint.sh /entrypoint.sh
 
