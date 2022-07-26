@@ -1,6 +1,6 @@
-FROM quay.io/pypa/manylinux1_i686
+FROM quay.io/pypa/musllinux_1_1_x86_64
 
-ENV PLAT manylinux1_i686
+ENV PLAT musllinux_1_1_x86_64
 
 COPY entrypoint.sh /entrypoint.sh
 
