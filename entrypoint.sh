@@ -51,7 +51,7 @@ failed_wheels=$PWD/failed-wheels
 rm -f "$failed_wheels"
 find . -type f -iname "*-manylinux*.whl" -exec sh -c "auditwheel repair '{}' -w \$(dirname '{}') --plat '${PLAT}' || { echo 'Repairing wheels failed.'; auditwheel show '{}' >> "$failed_wheels"; }" \;
 
-if [[ -f "$failed_wheels" ]]; then
+if [[ -s "$failed_wheels" ]]; then
     echo "Repairing wheels failed:"
     cat failed-wheels
     exit 1
