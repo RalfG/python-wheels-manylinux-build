@@ -1,6 +1,6 @@
 # action.yml
-name: 'Python wheels manylinux build'
-author: 'Ralf Gabriels'
+name: 'Python wheels manylinux build - agates'
+author: '@agates'
 description: 'Build manylinux wheels for a (Cython) Python package'
 inputs:
   python-versions:
