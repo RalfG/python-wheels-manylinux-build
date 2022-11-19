@@ -22,20 +22,22 @@ jobs:
             pep-425-tag: 'cp39-cp39'
           - python-version: '3.10'
             pep-425-tag: 'cp310-cp310'
+          - python-version: '3.11'
+            pep-425-tag: 'cp311-cp311'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout action
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         path: test_action
     - name: Checkout hello_py dummy project
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: ralfg/hello_py
         ref: v0.1.0
         path: hello_py
     - name: Setup Python environment
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Build manylinux Python wheels
