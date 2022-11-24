@@ -12,8 +12,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - python-version: '3.6'
-            pep-425-tag: 'cp36-cp36m'
           - python-version: '3.7'
             pep-425-tag: 'cp37-cp37m'
           - python-version: '3.8'
@@ -34,7 +32,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: ralfg/hello_py
-        ref: v0.1.0
+        ref: v0.1.1
         path: hello_py
     - name: Setup Python environment
       uses: actions/setup-python@v4
