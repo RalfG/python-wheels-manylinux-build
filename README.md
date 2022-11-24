@@ -23,17 +23,17 @@ check out [PyPA/cibuildwheel](https://github.com/pypa/cibuildwheel).
 Minimal:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.5.0
+uses: RalfG/python-wheels-manylinux-build@v0.6.0
 with:
-  python-versions: 'cp36-cp36m cp37-cp37m'
+  python-versions: 'cp310-cp310 cp311-cp311'
 ```
 
 Using all arguments:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2010_x86_64
+uses: RalfG/python-wheels-manylinux-build@v0.6.0-manylinux2010_x86_64
 with:
-  python-versions: 'cp36-cp36m cp37-cp37m'
+  python-versions: 'cp310-cp310 cp311-cp311'
   build-requirements: 'cython numpy'
   system-packages: 'lrzip-devel zlib-devel'
   pre-build-command: 'sh pre-build-script.sh'
@@ -50,7 +50,7 @@ for a complete example that includes linting and uploading to PyPI.
 
 | name | description | required | default | example(s) |
 | - | - | - | - | - |
-| `python-versions` | Python version tags for which to build (PEP 425 tags) wheels, as described in the [manylinux image documentation](https://github.com/pypa/manylinux), space-separated | required | `'cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39 cp310-cp310'` | `'cp36-cp36m cp37-cp37m'` |
+| `python-versions` | Python version tags for which to build (PEP 425 tags) wheels, as described in the [manylinux image documentation](https://github.com/pypa/manylinux), space-separated | required | `'cp37-cp37m cp38-cp38 cp39-cp39 cp310-cp310 cp311-cp311'` | `'cp310-cp310 cp311-cp311'` |
 | `build-requirements` | Python (pip) packages required at build time, space-separated | optional | `''` | `'cython'` or `'cython==0.29.14'` |
 | `system-packages` | System (yum) packages required at build time, space-separated | optional | `''` | `'lrzip-devel zlib-devel'` |
 | `pre-build-command` | Command to run before build, e.g. the execution of a script to perform additional build-environment setup | optional | `''` | `'sh pre-build-script.sh'` |
@@ -66,8 +66,8 @@ wheels are not accepted by PyPI.
 ### Using a different manylinux container
 The `manylinux2014_x86_64` container is used by default. To use another manylinux
 container, append `-<container-name>` to the reference. For example:
-`RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_aarch64` instead of
-`RalfG/python-wheels-manylinux-build@v0.5.0`.
+`RalfG/python-wheels-manylinux-build@v0.6.0-manylinux2014_aarch64` instead of
+`RalfG/python-wheels-manylinux-build@v0.6.0`.
 
 ## Contributing
 Bugs, questions or suggestions? Feel free to post an issue in the
