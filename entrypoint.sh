@@ -21,8 +21,10 @@ if [ ! -z "$SYSTEM_PACKAGES" ]; then
         apt-get install -y ${SYSTEM_PACKAGES}  || { echo "Installing apt package(s) failed."; exit 1; }
     elif command -v yum >/dev/null; then
         yum install -y ${SYSTEM_PACKAGES}  || { echo "Installing yum package(s) failed."; exit 1; }
+    elif command -v apk >/dev/null; then
+        apk add ${SYSTEM_PACKAGES}  || { echo "Installing apk package(s) failed."; exit 1; }
     else
-        echo "Package managers apt or yum not found."; exit 1;
+        echo "Package managers apt, yum, or apk not found."; exit 1;
     fi
 fi
 
