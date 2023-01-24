@@ -1,6 +1,6 @@
-FROM quay.io/pypa/manylinux2014_aarch64
+FROM quay.io/pypa/manylinux2014_ppc64le
 
-ENV PLAT manylinux2014_aarch64
+ENV PLAT manylinux2014_ppc64le
 
 COPY entrypoint.sh /entrypoint.sh
 
