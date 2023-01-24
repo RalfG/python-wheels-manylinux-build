@@ -23,7 +23,7 @@ check out [PyPA/cibuildwheel](https://github.com/pypa/cibuildwheel).
 Minimal:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.7.0
+uses: RalfG/python-wheels-manylinux-build@v0.7.1
 with:
   python-versions: 'cp310-cp310 cp311-cp311'
 ```
@@ -31,7 +31,7 @@ with:
 Using all arguments:
 
 ```yaml
-uses: RalfG/python-wheels-manylinux-build@v0.7.0-manylinux2010_x86_64
+uses: RalfG/python-wheels-manylinux-build@v0.7.1-manylinux2010_x86_64
 with:
   python-versions: 'cp310-cp310 cp311-cp311'
   build-requirements: 'cython numpy'
@@ -66,8 +66,8 @@ wheels are not accepted by PyPI.
 ### Using a different manylinux container
 The `manylinux2014_x86_64` container is used by default. To use another manylinux
 container, append `-<container-name>` to the reference. For example:
-`RalfG/python-wheels-manylinux-build@v0.7.0-manylinux2014_aarch64` instead of
-`RalfG/python-wheels-manylinux-build@v0.7.0`.
+`RalfG/python-wheels-manylinux-build@v0.7.1-manylinux2014_aarch64` instead of
+`RalfG/python-wheels-manylinux-build@v0.7.1`.
 
 ## Contributing
 Bugs, questions or suggestions? Feel free to post an issue in the
