@@ -1,3 +1,7 @@
+⚠️ This action has been archived in favor of [PyPA/cibuildwheel](https://github.com/pypa/cibuildwheel) ⚠️
+
+---
+
 # Python wheels manylinux build - GitHub Action
 
 ![GitHub release](https://flat.badgen.net/github/release/RalfG/python-wheels-manylinux-build)
